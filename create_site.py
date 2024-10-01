@@ -21,11 +21,10 @@ class CreateSite(Script):
     )
     def run(self, data, commit):
         site = Site(
-            name=data['site_name'],
+            name=data['site_name'].name,
             slug=slugify(data['site_name']),
             status=SiteStatusChoices.STATUS_PLANNED
         )
-        self.log_success(dir(site))
         site.save()
         self.log_success(f"Created new site: {site}")
         device_role = DeviceRole.objects.get(name='Access Point')
