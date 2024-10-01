@@ -9,14 +9,14 @@ class CreateSite(Script):
         description = "Script to create a new Site"
 
     site = ObjectVar(
-        description="Access switch model",
+        description="Site name",
         model=Site
     )
     device_count = IntegerVar(
         description="Number of devices to create"
     )
     device_type = ObjectVar(
-        description="Device type",
+        description="Device type to create",
         model=DeviceType
     )
     def run(self, data, commit):
