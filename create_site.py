@@ -8,7 +8,7 @@ class CreateSite(Script):
         name = "Create Site"
         description = "Script to create a new Site"
 
-    site = ObjectVar(
+    site_input = ObjectVar(
         description="Site name",
         model=Site
     )
@@ -20,7 +20,7 @@ class CreateSite(Script):
         model=DeviceType
     )
     def run(self, data, commit):
-        site = Site.objects.get(name=data['site'].name)
+        site = Site.objects.get(name=data['site_input'].name)
         device_role = DeviceRole.objects.get(name='Access-AP')
         # Create devices
         for i in range(1, data['device_count'] + 1):
@@ -32,4 +32,4 @@ class CreateSite(Script):
                 device_role=device_role
             )
             device.save()
-            self.log_success(f"Created new switch: {device}")
+            self.log_success(f"Created new {device_role.name}: {device} in site: {site.name}")
