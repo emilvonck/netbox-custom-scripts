@@ -8,7 +8,7 @@ class CreateSite(Script):
         name = "Create Site"
         description = "Script to create a new Site"
 
-    site = ObjectVar(
+    site_name = ObjectVar(
         description="Site name",
         model=Site
     )
