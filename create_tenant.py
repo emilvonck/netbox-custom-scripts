@@ -9,7 +9,7 @@ class CreateTenant(Script):
 
 
     tenant_name = StringVar(label="Tenant Name")
-    tenant_desc = StringVar(label="Tenant Desc")
+    tenant_desc = StringVar(label="Tenant Desc", required=False)
 
     def run(self, data, commit):
         tenant = Tenant(
