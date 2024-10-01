@@ -2,6 +2,7 @@ from extras.scripts import *
 from django.utils.text import slugify
 from dcim.choices import DeviceStatusChoices, SiteStatusChoices
 from dcim.models import Device, DeviceRole, DeviceType, Site
+from ipam.models import Prefix, IPAddress, IPRange
 
 class CreateSite(Script):
     class Meta: # type: ignore
@@ -23,6 +24,9 @@ class CreateSite(Script):
         site = Site.objects.get(name=data['site_input'].name)
         device_role = DeviceRole.objects.get(name='Access-AP')
         # Create devices
+        self.log_success(dir(Prefix))
+        self.log_success(dir(IPAddress))
+        self.log_success(dir(IPRange))
         for i in range(1, data['device_count'] + 1):
             device = Device(
                 device_type=data['device_type'],
