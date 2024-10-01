@@ -3,7 +3,7 @@ from extras.scripts import Script, StringVar
 from django.utils.text import slugify
 
 class CreateTenant(Script):
-    class Meta:
+    class Meta: # type: ignore
         name = "Create Tenant"
         description = "My demo script"
 
