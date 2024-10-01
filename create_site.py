@@ -8,7 +8,7 @@ class CreateSite(Script):
         name = "Create Site"
         description = "Script to create a new Site"
 
-    site_name = ObjectVar(
+    site = ObjectVar(
         description="Site name",
         model=Site
     )
@@ -23,9 +23,8 @@ class CreateSite(Script):
         site = Site(
             name=data['site_name'].name,
         )
-        device_role = DeviceRole.objects.get(name='Access Point')
+        device_role = DeviceRole.objects.get(name='Access-AP')
         # Create devices
-        device_role = DeviceRole.objects.get(name='Access Switch')
         for i in range(1, data['device_count'] + 1):
             device = Device(
                 device_type=data['device_type'],
