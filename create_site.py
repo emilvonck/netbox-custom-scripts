@@ -21,7 +21,7 @@ class CreateSite(Script):
     )
     def run(self, data, commit):
         site = Site(
-            name=data['site_name'].name,
+            name=data['site'].name,
         )
         device_role = DeviceRole.objects.get(name='Access-AP')
         # Create devices
