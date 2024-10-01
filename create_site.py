@@ -20,9 +20,7 @@ class CreateSite(Script):
         model=DeviceType
     )
     def run(self, data, commit):
-        site = Site(
-            name=data['site'].name,
-        )
+        site = Site.objects.get(name=data['site'].name)
         device_role = DeviceRole.objects.get(name='Access-AP')
         # Create devices
         for i in range(1, data['device_count'] + 1):
