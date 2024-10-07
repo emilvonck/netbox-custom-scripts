@@ -6,16 +6,12 @@ from ipam.models import Prefix, IPAddress, IPRange, VLAN
 
 class CreateSite(Script):
     class Meta: # type: ignore
-        name = "Create New Router"
-        description = "Script to create a new router on site and allocate adressing autmatically"
+        name = "Create Gaming Console"
+        description = "Script to create a new gaming console and allocate addresssing automatically"
 
     site_input = ObjectVar(
         description="Site name",
         model=Site
-    )
-    vlan_input = ObjectVar(
-        description="Vlan",
-        model=VLAN
     )
 
     def run(self, data, commit):
